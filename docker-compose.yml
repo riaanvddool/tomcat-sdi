@@ -1,7 +1,6 @@
 tomcat-sdi:
   container_name: tomcat-sdi
-  #image: tomcat:8.5-jre8
-  build: .
+  build: build
   environment:
   - MAXMEM=4096m
   - GEOSERVER_DATA_DIR=/var/geoserver_data
