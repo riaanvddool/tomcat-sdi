@@ -1,19 +1,18 @@
 tomcat-sdi:
   container_name: tomcat-sdi
-  extends:
-    file: docker-compose-firstrun.yml
-    service: geoserver
+  #image: tomcat:8.5-jre8
+  build: .
   environment:
   - MAXMEM=4096m
   - GEOSERVER_DATA_DIR=/var/geoserver_data
   - GEONETWORK_DATA_DIR=/var/geonetwork_data
   volumes:
-  - ./downloads/local_policy.jar:/usr/lib/jvm/default-jvm/jre/lib/security/local_policy.jar
-  - ./downloads/US_export_policy.jar:/usr/lib/jvm/default-jvm/jre/lib/security/US_export_policy.jar
-  - ./webapps:/usr/tomcat/webapps
+  #- ./downloads/local_policy.jar:/usr/lib/jvm/default-jvm/jre/lib/security/local_policy.jar
+  #- ./downloads/US_export_policy.jar:/usr/lib/jvm/default-jvm/jre/lib/security/US_export_policy.jar
+  - ./webapps:/usr/local/tomcat/webapps
   - ./geoserver_data:/var/geoserver_data
   - ./geonetwork_data:/var/geonetwork_data
-  - ./setenv.sh:/usr/tomcat/bin/setenv.sh:ro
+  - ./settings/setenv.sh:/usr/local/tomcat/bin/setenv.sh
   ports:
   - "8078:8080"
   restart: unless-stopped
