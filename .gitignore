@@ -4,3 +4,5 @@ geonetwork_data/
 downloads/
 
 old/
+
+build/jdbc.properties

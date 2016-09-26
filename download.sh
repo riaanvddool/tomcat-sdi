@@ -1,7 +1,7 @@
 #! /bin/bash
 
 GS_VER="${GS_VER:-2.8.3}"
-GS_PLUGINS="mysql cas css imagemosaic-jdbc wps feature-pregeneralized pyramid"
+GS_PLUGINS="mysql cas css imagemosaic-jdbc wps feature-pregeneralized pyramid importer"
 
 GN_VER="${GN_VER:-3.0.3}"
 

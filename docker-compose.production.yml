@@ -1,0 +1,26 @@
+tomcat-sdi-production:
+  container_name: tomcat-sdi-production
+  extends:
+    file: docker-compose.yml
+    service: tomcat-sdi
+  environment:
+  - MINMEM=4096m
+  - MAXMEM=4096m
+  - GEOSERVER_DATA_DIR=/var/geoserver_data
+  - GEONETWORK_DATA_DIR=/var/geonetwork_data
+  volumes:
+  - ./webapps:/usr/local/tomcat/webapps
+  - ./geoserver_data:/var/geoserver_data
+  - ./geonetwork_data:/var/geonetwork_data
+  - ./build/setenv.sh:/usr/local/tomcat/bin/setenv.sh
+  - ./build/srv.xml:/usr/local/tmocat/webapps/geonetwork/WEB-INF/config-node/srv.xml
+  - ./build/jdbc.properties:/usr/local/tmocat/webapps/geonetwork/WEB-INF/config-db/jdbc.properties
+  #- ./build/ssl.crt:/usr/local/tomcat/conf/ssl.crt
+  #- ./build/ssl.key:/usr/local/tomcat/conf/ssl.key
+  - ./build/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+  ports:
+  - "8078:8080"
+  - "8074:8443"
+  restart: unless-stopped
+
+

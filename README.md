@@ -1,4 +1,4 @@
-# Tomcat on Docker
+# Tomcat Docker for SDI based on Geoserver and Geonetwork
 
 Based on tomcat:8-jre8 but running as tomcat user
 

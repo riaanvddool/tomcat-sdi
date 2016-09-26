@@ -8,13 +8,13 @@ RUN \
     useradd -u 1000 -r -g tomcat -d $CATALINA_HOME -s /bin/bash tomcat
 
 # Tomcat user helpers
-COPY settings/.bash_profile $CATALINA_HOME/.bash_profile
-COPY settings/.bash_logout $CATALINA_HOME/.bash_logout
+COPY .bash_profile $CATALINA_HOME/.bash_profile
+COPY .bash_logout $CATALINA_HOME/.bash_logout
 
 # Tomcat config
-COPY settings/setenv.sh $CATALINA_HOME/bin/setenv.sh
-COPY settings/server.xml $CATALINA_HOME/conf/server.xml
-COPY settings/tomcat-users.xml $CATALINA_HOME/conf/tomcat-users.xml
+COPY setenv.sh $CATALINA_HOME/bin/setenv.sh
+COPY server.xml $CATALINA_HOME/conf/server.xml
+COPY tomcat-users.xml $CATALINA_HOME/conf/tomcat-users.xml
 
 # Create a self-signed certificate for Tomcat to use
 RUN \

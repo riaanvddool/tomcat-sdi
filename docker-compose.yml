@@ -6,12 +6,10 @@ tomcat-sdi:
   - GEOSERVER_DATA_DIR=/var/geoserver_data
   - GEONETWORK_DATA_DIR=/var/geonetwork_data
   volumes:
-  #- ./downloads/local_policy.jar:/usr/lib/jvm/default-jvm/jre/lib/security/local_policy.jar
-  #- ./downloads/US_export_policy.jar:/usr/lib/jvm/default-jvm/jre/lib/security/US_export_policy.jar
   - ./webapps:/usr/local/tomcat/webapps
   - ./geoserver_data:/var/geoserver_data
   - ./geonetwork_data:/var/geonetwork_data
-  - ./settings/setenv.sh:/usr/local/tomcat/bin/setenv.sh
+  - ./build/setenv.sh:/usr/local/tomcat/bin/setenv.sh
   ports:
   - "8078:8080"
   restart: unless-stopped
